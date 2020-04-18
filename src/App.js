@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-export default function MyComponent() {
+export default function App() {
   const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
   const [items, setItems] = useState([]);
@@ -9,12 +9,15 @@ export default function MyComponent() {
   // this useEffect will run once
   // similar to componentDidMount()
   useEffect(() => {
-    fetch("https://api.example.com/items")
+    fetch(
+      "https://cors-anywhere.herokuapp.com/https://imedinews.ge/api/categorysidebarnews/get?categoryId="
+    )
       .then(res => res.json())
       .then(
         result => {
           setIsLoaded(true);
-          setItems(result.items);
+          const { List } = result;
+          setItems(List);
         },
         // Note: it's important to handle errors here
         // instead of a catch() block so that we don't swallow
@@ -29,16 +32,20 @@ export default function MyComponent() {
   if (error) {
     return <div>Error: {error.message}</div>;
   } else if (!isLoaded) {
-    return <div>Loading...</div>;
+    return <div>იტვირთება...</div>;
   } else {
     return (
-      <ul>
-        {items.map(item => (
-          <li key={item.name}>
-            {item.name} {item.price}
-          </li>
-        ))}
-      </ul>
+      <div>
+        <p>Text-only Imedinews front page</p>
+        <p>todays date, current time</p>
+        <ul>
+          {items.map((item, i) => (
+            <li key={i}>
+              <a href={item.Url}>{item.Title}</a>
+            </li>
+          ))}
+        </ul>
+      </div>
     );
   }
 }
