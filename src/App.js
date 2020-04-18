@@ -34,14 +34,36 @@ export default function App() {
   } else if (!isLoaded) {
     return <div>იტვირთება...</div>;
   } else {
+    const currentDate = new Date();
     return (
       <div>
-        <p>Text-only Imedinews front page</p>
-        <p>todays date, current time</p>
+        <p>
+          Text-Only{" "}
+          <b>
+            <a
+              href="https://imedinews.ge/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              imedinews.ge
+            </a>
+          </b>{" "}
+          front page
+        </p>
+        <p>
+          {currentDate.toLocaleDateString(undefined, {
+            year: "numeric",
+            month: "long",
+            day: "numeric",
+          })}{" "}
+          &mdash; მნიშვნელოვანი ამბები:
+        </p>
         <ul>
           {items.map((item, i) => (
             <li key={i}>
-              <a href={item.Url}>{item.Title}</a>
+              <a href={item.Url} target="_blank" rel="noopener noreferrer">
+                {item.Title}
+              </a>
             </li>
           ))}
         </ul>
