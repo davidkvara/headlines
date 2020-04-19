@@ -20,3 +20,7 @@ ul {
 li {
   margin-bottom: 0.45rem;
 }
+
+.title {
+  font-size: 1rem;
+}

@@ -32,42 +32,57 @@ export default function App() {
   if (error) {
     return <div>Error: {error.message}</div>;
   } else if (!isLoaded) {
-    return <div>იტვირთება...</div>;
+    return <div>წამი...</div>;
   } else {
-    const currentDate = new Date();
     return (
       <div>
-        <p>
-          Text-Only{" "}
-          <b>
-            <a
-              href="https://imedinews.ge/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              imedinews.ge
-            </a>
-          </b>{" "}
-          front page
-        </p>
-        <p>
-          {currentDate.toLocaleDateString(undefined, {
-            year: "numeric",
-            month: "long",
-            day: "numeric",
-          })}{" "}
-          &mdash; მნიშვნელოვანი ამბები:
-        </p>
-        <ul>
-          {items.map((item, i) => (
-            <li key={i}>
-              <a href={item.Url} target="_blank" rel="noopener noreferrer">
-                {item.Title}
-              </a>
-            </li>
-          ))}
-        </ul>
+        <PageHeader />
+        <main>
+          <ul>
+            {items.map((item, i) => (
+              <NewsLink key={i} {...item} />
+            ))}
+          </ul>
+        </main>
       </div>
     );
   }
+}
+
+function NewsLink(props) {
+  return (
+    <li>
+      <a href={props.Url} target="_blank" rel="noopener noreferrer">
+        {props.Title}
+      </a>
+    </li>
+  );
+}
+
+function PageHeader() {
+  const currentDate = new Date();
+
+  return (
+    <header>
+      <h1 className="title">
+        Text-Only{" "}
+        <a
+          href="https://imedinews.ge/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          imedinews.ge
+        </a>{" "}
+        front page
+      </h1>
+      <p>
+        {currentDate.toLocaleDateString(undefined, {
+          year: "numeric",
+          month: "long",
+          day: "numeric",
+        })}{" "}
+        &mdash; მნიშვნელოვანი ამბები:
+      </p>
+    </header>
+  );
 }
