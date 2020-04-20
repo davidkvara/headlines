@@ -5,6 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  line-height: 1.5;
 }
 
 a {
@@ -13,8 +14,23 @@ a {
 }
 
 ul {
-  margin-left: 1rem;
   margin-bottom: 3rem;
+  list-style-type: circle;
+  margin-left: -1rem;
+}
+
+header {
+  margin-left: 1.3rem;
+}
+
+@media (min-width: 770px) {
+  ul {
+    margin-left: 1rem;
+  }
+
+  header {
+    margin-left: 2.6rem;
+  }
 }
 
 li {
