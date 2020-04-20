@@ -32,24 +32,28 @@ export default function App() {
   if (error) {
     return <div>Error: {error.message}</div>;
   } else if (!isLoaded) {
-    return <div>წამი...</div>;
+    return (
+      <div className="spinner">
+        <div className="spinner-icon"></div>
+      </div>
+    );
   } else {
     return (
-      <div>
+      <>
         <PageHeader />
         <main>
           <ul>
             {items.map((item, i) => (
-              <NewsLink key={i} {...item} />
+              <ListItem key={i} {...item} />
             ))}
           </ul>
         </main>
-      </div>
+      </>
     );
   }
 }
 
-function NewsLink(props) {
+function ListItem(props) {
   return (
     <li>
       <a href={props.Url} target="_blank" rel="noopener noreferrer">
