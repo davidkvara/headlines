@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { MyComponents } from "./MyComponents";
 
 export default function App() {
   const [error, setError] = useState(null);
@@ -30,7 +31,14 @@ export default function App() {
   }, []);
 
   if (error) {
-    return <div>Error: {error.message}</div>;
+    return (
+      <div>
+        <span role="img" aria-label="Sorry">
+          🙄
+        </span>{" "}
+        იქნებ გვერდის განახლება გეცადა? 🛠
+      </div>
+    );
   } else if (!isLoaded) {
     return (
       <div className="spinner">
@@ -40,53 +48,15 @@ export default function App() {
   } else {
     return (
       <>
-        <PageHeader />
+        <MyComponents.PageHeader />
         <main>
           <ul>
             {items.map((item, i) => (
-              <ListItem key={i} {...item} />
+              <MyComponents.ListItem key={i} {...item} />
             ))}
           </ul>
         </main>
       </>
     );
   }
-}
-
-function ListItem(props) {
-  return (
-    <li>
-      <a href={props.Url} target="_blank" rel="noopener noreferrer">
-        {props.Title}
-      </a>
-    </li>
-  );
-}
-
-function PageHeader() {
-  const currentDate = new Date();
-
-  return (
-    <header>
-      <h1 className="title">
-        Text-Only{" "}
-        <a
-          href="https://imedinews.ge/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          imedinews.ge
-        </a>{" "}
-        front page
-      </h1>
-      <p>
-        {currentDate.toLocaleDateString(undefined, {
-          year: "numeric",
-          month: "long",
-          day: "numeric",
-        })}{" "}
-        &mdash; მნიშვნელოვანი ამბები:
-      </p>
-    </header>
-  );
 }
