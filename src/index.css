@@ -5,17 +5,27 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  line-height: 1.5;
+  line-height: 1.6;
+}
+
+::selection {
+  background: #6a6872;
+  color: #fff;
 }
 
 a {
-  text-decoration-color: gray;
+  text-decoration-color: #a3a3a3;
   text-decoration-style: dotted;
+}
+
+a:focus {
+  outline: 2px solid orange;
 }
 
 ul {
   margin-bottom: 3rem;
   list-style-type: circle;
+  color: #343538;
   margin-left: -1rem;
 }
 
@@ -50,7 +60,9 @@ li {
   left: 15px;
 }
 
-.spinner-icon {
+.spinner::after {
+  content: "";
+  position: absolute;
   width: 18px;
   height: 18px;
   box-sizing: border-box;
