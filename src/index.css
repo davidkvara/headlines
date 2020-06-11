@@ -22,13 +22,12 @@ html {
 }
 
 a {
-  text-decoration-color: #a6a6a6;
-  text-decoration-style: dotted;
+  text-decoration-color: #c1c1c1;
 }
 
 a:focus {
   outline: 1px dotted #757578;
-  background: whitesmoke;
+  /* background: whitesmoke; */
 }
 
 a:hover {
@@ -61,6 +60,12 @@ li {
   margin-bottom: 0.45rem;
   font-size: 1.03rem;
   line-height: 1.7;
+}
+
+li::before {
+  content: "\00BB ";
+  color: #8d8d8d;
+  font-size: 1.1rem;
 }
 
 .title {
