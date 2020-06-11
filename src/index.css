@@ -37,9 +37,9 @@ a:hover {
 
 ul {
   margin-bottom: 3rem;
-  list-style-type: circle;
+  list-style: none;
   color: #343538;
-  margin-left: -1rem;
+  margin-left: -1.1rem;
 }
 
 header {
@@ -48,7 +48,7 @@ header {
 
 @media (min-width: 770px) {
   ul {
-    margin-left: 1rem;
+    margin-left: 0.8rem;
   }
 
   header {
@@ -59,13 +59,14 @@ header {
 li {
   margin-bottom: 0.45rem;
   font-size: 1.03rem;
-  line-height: 1.7;
 }
 
 li::before {
-  content: "\00BB ";
+  content: "\00BB";
   color: #8d8d8d;
   font-size: 1.1rem;
+  margin-left: -1.09rem;
+  margin-right: 0.5rem;
 }
 
 .title {
