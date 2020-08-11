@@ -2,8 +2,6 @@
   font-family: dejavu;
   src: url("./assets/fonts/bpg_gel_excelsior.woff2") format("woff2"),
     url("./assets/fonts/bpg_gel_excelsior.woff") format("woff");
-  unicode-range: U+10D0-10F0;
-  font-display: swap;
 }
 
 body,
@@ -17,29 +15,22 @@ html {
   font-size: 15px;
 }
 
-::selection {
-  background: #898791;
-  text-shadow: none;
-  color: #fff;
-}
-
 a {
   text-decoration-color: #c1c1c1;
 }
 
 a:focus {
-  outline: 1px dotted #757578;
+  outline: 2px dotted #757578;
   /* background: whitesmoke; */
 }
 
 a:hover {
-  text-decoration: underline;
+  text-decoration-color: #777;
 }
 
 ul {
   margin-bottom: 3rem;
   list-style: none;
-  color: #343538;
   margin-left: -1.1rem;
 }
 
